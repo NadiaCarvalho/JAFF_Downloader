@@ -60,16 +60,40 @@ title = tree.xpath(title_xpath)
 
 title_x = title[6]
 title_x = title_x.strip('\n')
-title_x = title_x.strip('\t')
-title_x = "".join(title_x.split(":")[1:])
+title_x = title_x.strip('\t') 
+
+if "-" in title_x:
+    title_x_y =  "-".join(title_x.split("-")[1:])
+elif "," in title_x:
+    title_x_y =  ",".join(title_x.split(",")[1:])
+
 title_x = "".join(title_x.split("-")[0])
 title_x = "".join(title_x.split(",")[0])
-title_x = " ".join(title_x.split(" ")[1:])
+title_x = "".join(title_x.split(":")[1:])
+
+if title_x.startswith(" "):
+    title_x = " ".join(title_x.split(" ")[1:])
+
+if title_x.endswith(" "):
+    title_x = " ".join(title_x.split(" ")[:-1])
 
 file_title = title_x + ".txt"
 
+author_xpath = "//h4/a/text()"
+author_x = tree.xpath(author_xpath)
+author = author_x[0]
+
+title_x_y = title_x_y.strip('\n')
+
+if title_x_y.startswith(" "):
+    title_x_y = " ".join(title_x_y.split(" ")[1:])
+
 os.chdir("/Users/nadiacarvalho/Documents/Github/JAFF_DOWNLOADER/files/")
 file= open(file_title,'w')
+
+file.write("<h1>" + title_x + "</h1>\n")
+file.write("<h2>" + author + "</h2>\n")
+file.write("<h3>" + title_x_y + "</h3>\n")
 
 for i in range(0,int(number_pages)):
     download_url = ".".join(url.split(".")[:-1]) + "." + str(i*2) + "0"
