@@ -93,7 +93,7 @@ file= open(file_title,'w')
 
 file.write("<h1>" + title_x + "</h1>\n")
 file.write("<h2>" + author + "</h2>\n")
-file.write("<h3>" + title_x_y + "</h3>\n")
+file.write("<h3>" + title_x_y + "</h3>\n\n\n")
 
 for i in range(0,int(number_pages)):
     download_url = ".".join(url.split(".")[:-1]) + "." + str(i*2) + "0"
