@@ -36,8 +36,8 @@ hidden_inputs = login_html.xpath(r'//form//input[@type="hidden"]')
 form = {x.attrib["name"]: x.attrib["value"] for x in hidden_inputs}
 
 # Create payload
-form["user"] = ""
-form["passwrd"] = ""
+form["user"] = args.user
+form["passwrd"] = args.password
 form["cookielength"] = 60
 form["cookieneverexp"] = "on"
 
@@ -68,15 +68,8 @@ title_x = " ".join(title_x.split(" ")[1:])
 
 file_title = title_x + ".txt"
 
-os.chdir("/Users/nadiacarvalho/Documents/Github/fanfiction_downloader")
-
-if os.path.exists(file_title)==False:  
-    create_file= open(file_title,'w')  #This is just to  create the file 
-                                                  #in case it doesn't exist
-    create_file.close()
-file= open(file_title,'r+')
-
-data= file.read()
+os.chdir("/Users/nadiacarvalho/Documents/Github/JAFF_DOWNLOADER/files/")
+file= open(file_title,'w')
 
 for i in range(0,int(number_pages)):
     download_url = ".".join(url.split(".")[:-1]) + "." + str(i*2) + "0"
