@@ -66,6 +66,8 @@ if "-" in title_x:
     title_x_y =  "-".join(title_x.split("-")[1:])
 elif "," in title_x:
     title_x_y =  ",".join(title_x.split(",")[1:])
+else: 
+    title_x_y = ""
 
 title_x = "".join(title_x.split("-")[0])
 title_x = "".join(title_x.split(",")[0])
