@@ -70,7 +70,7 @@ title_x_y = title_x_y[0]
 xpath = "//*[@class='post_body']//*[@itemprop='commentText']//text()"
 
 file_title = title + ".txt"
-os.chdir("/Users/nadiacarvalho/Documents/FF/JAFF/files/")
+os.chdir("/Users/nadiacarvalho/Documents/Documents/FF/JAFF/files/")
 file= open(file_title,'w')
 
 file.write("<h1>" + title + "</h1>\n")

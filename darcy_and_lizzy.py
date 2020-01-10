@@ -90,7 +90,7 @@ title_x_y = title_x_y.strip('\n')
 if title_x_y.startswith(" "):
     title_x_y = " ".join(title_x_y.split(" ")[1:])
 
-os.chdir("/Users/nadiacarvalho/Documents/Github/JAFF_DOWNLOADER/files/")
+os.chdir("/Users/nadiacarvalho/Documents/Documents/FF/JAFF/files/")
 file= open(file_title,'w')
 
 file.write("<h1>" + title_x + "</h1>\n")
